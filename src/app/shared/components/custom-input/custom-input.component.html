@@ -1,0 +1,11 @@
+<div [class]="['custom-input', inputClass, { error: errorMessage }]" [formGroup]="formGroup">
+  <label class="custom-input__label" [for]="name">{{ label }}</label>
+  <input
+    class="custom-input__field"
+    [type]="type"
+    [formControlName]="name"
+    [id]="name"
+    [placeholder]="placeholder"
+  >
+  <p *ngIf="errorMessage" class="custom-form__error">{{ errorMessage }}</p>
+</div>
