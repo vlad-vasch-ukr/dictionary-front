@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {FormGroup, FormBuilder, Validators, FormsModule, ReactiveFormsModule, FormControl} from '@angular/forms';
 import { CustomInputComponent } from '../../../shared/components/custom-input/custom-input.component';
+import { FieldErrorsComponent } from '../../../shared/components/field-errors/field-errors.component';
 
 @Component({
   selector: 'app-register-form',
@@ -8,7 +9,8 @@ import { CustomInputComponent } from '../../../shared/components/custom-input/cu
   imports: [
     CustomInputComponent,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FieldErrorsComponent
   ],
   templateUrl: './register-form.component.html',
   styleUrl: './register-form.component.scss'
@@ -21,13 +23,7 @@ export class RegisterFormComponent implements OnInit {
   passwordValidators = [Validators.required, Validators.minLength(5)];
   repeatPasswordValidators = [Validators.required];
 
-  constructor(private fb: FormBuilder) {}
-
-  onSubmit() {
-    console.log('submit')
-  }
-
-  ngOnInit() {
+  constructor(private fb: FormBuilder) {
     this.registerForm = this.fb.group({
       firstName: [''],
       lastName: [''],
@@ -36,6 +32,20 @@ export class RegisterFormComponent implements OnInit {
       repeatPassword: [''],
     });
   }
+
+  get firstName(): FormGroup {
+    return this.registerForm.get('firstName') as FormGroup;
+  }
+
+  onSubmit() {
+    this.registerForm.markAllAsTouched();
+
+    if (this.registerForm.valid) {
+
+    }
+  }
+
+  ngOnInit() {}
 
   protected readonly console = console;
 }

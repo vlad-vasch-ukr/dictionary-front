@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { NgIf } from "@angular/common";
+import { NgIf } from '@angular/common';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-field-errors',
@@ -11,7 +12,9 @@ import { NgIf } from "@angular/common";
   styleUrl: './field-errors.component.scss'
 })
 export class FieldErrorsComponent {
-  @Input() errorName!: string;
+  @Input() required!: boolean;
+  @Input() email!: boolean;
   @Input() minLength!: number;
   @Input() maxLength!: number;
+  @Input() field!: FormGroup;
 }

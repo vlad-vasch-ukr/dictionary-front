@@ -1,11 +1,14 @@
 <form [formGroup]="registerForm" class="register-form border border-1 border-light-subtle p-3 rounded-3" (ngSubmit)="onSubmit()">
-  <app-custom-input
-    [formGroup]="registerForm"
-    [validators]="firstNameValidators"
-    name="firstName"
-    placeholder="Enter first name"
-    label=""
-  />
-  <span>{{ console.log(registerForm.get('firstName')?.errors) }}</span>
+  <div class="register-form__field">
+    <app-custom-input
+      [formGroup]="registerForm"
+      [validators]="firstNameValidators"
+      name="firstName"
+      placeholder="Enter first name"
+      label=""
+    />
+    <app-field-errors [field]="firstName" />
+  </div>
+  <span>{{ console.log(registerForm) }}</span>
   <button type="submit" class="btn btn-primary d-block w-100 mt-3 text-uppercase">register</button>
 </form>
