@@ -1,25 +1,41 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CustomInputComponent } from '../../../shared/components/custom-input/custom-input.component';
 
 @Component({
   selector: 'app-register-form',
   standalone: true,
-  imports: [],
+  imports: [
+    CustomInputComponent,
+    FormsModule,
+    ReactiveFormsModule
+  ],
   templateUrl: './register-form.component.html',
   styleUrl: './register-form.component.scss'
 })
 export class RegisterFormComponent implements OnInit {
   registerForm!: FormGroup;
+  firstNameValidators = [Validators.required, Validators.minLength(3)];
+  lastNameValidators = [Validators.required, Validators.minLength(3)];
+  emailValidators = [Validators.required, Validators.email];
+  passwordValidators = [Validators.required, Validators.minLength(5)];
+  repeatPasswordValidators = [Validators.required];
 
   constructor(private fb: FormBuilder) {}
 
+  onSubmit() {
+    console.log('submit')
+  }
+
   ngOnInit() {
     this.registerForm = this.fb.group({
-      firstName: ['', [Validators.required, Validators.minLength(3)]],
-      lastName: ['', [Validators.required, Validators.minLength(3)]],
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(5)]],
-      repeatPassword: ['', Validators.required],
+      firstName: [''],
+      lastName: [''],
+      email: [''],
+      password: [''],
+      repeatPassword: [''],
     });
   }
+
+  protected readonly console = console;
 }

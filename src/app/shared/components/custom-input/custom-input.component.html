@@ -1,7 +1,7 @@
 <div [class]="['custom-input', inputClass, { error: errorMessage }]" [formGroup]="formGroup">
-  <label class="custom-input__label" [for]="name">{{ label }}</label>
+  <label class="custom-input__label mb-1" *ngIf="label" [for]="name">{{ label }}</label>
   <input
-    class="custom-input__field"
+    class="custom-input__field form-control"
     [type]="type"
     [formControlName]="name"
     [id]="name"
