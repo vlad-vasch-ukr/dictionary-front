@@ -1,4 +1,4 @@
-<div *ngIf="field.invalid && (field.dirty || field.touched)">
+<div *ngIf="field.invalid && (field.dirty || field.touched)" class="text-danger mt-1 custom-error">
   <p *ngIf="field.errors?.['required']" class="invalid">This field is required</p>
   <p *ngIf="field.errors?.['minLength']" class="invalid-feedback">Minimum length is {{ minLength }}</p>
   <p *ngIf="field.errors?.['maxLength']" class="invalid-feedback">Minimum length is {{ maxLength }}</p>
