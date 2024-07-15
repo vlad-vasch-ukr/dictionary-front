@@ -1,11 +1,12 @@
-<div [class]="['custom-input', inputClass, { error: errorMessage }]" [formGroup]="formGroup">
+<div class="custom-input" [formGroup]="formGroup">
   <label class="custom-input__label mb-1" *ngIf="label" [for]="name">{{ label }}</label>
   <input
     class="custom-input__field form-control"
+    [ngClass]="{ 'is-invalid': field.invalid && (field.dirty || field.touched) }"
     [type]="type"
     [formControlName]="name"
     [id]="name"
     [placeholder]="placeholder"
   >
-  <p *ngIf="errorMessage" class="custom-form__error">{{ errorMessage }}</p>
+  <app-field-errors [field]="field" />
 </div>

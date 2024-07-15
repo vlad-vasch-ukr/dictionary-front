@@ -1,5 +1,5 @@
 <div *ngIf="field.invalid && (field.dirty || field.touched)">
-  <p *ngIf="field.errors?.['required']">This field is required</p>
-  <p *ngIf="field.errors?.['minLength']">Minimum length is {{ minLength }}</p>
-  <p *ngIf="field.errors?.['maxLength']">Minimum length is {{ maxLength }}</p>
+  <p *ngIf="field.errors?.['required']" class="invalid">This field is required</p>
+  <p *ngIf="field.errors?.['minLength']" class="invalid-feedback">Minimum length is {{ minLength }}</p>
+  <p *ngIf="field.errors?.['maxLength']" class="invalid-feedback">Minimum length is {{ maxLength }}</p>
 </div>

@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup, ReactiveFormsModule, ValidatorFn } from '@angular/forms';
-import { NgIf } from '@angular/common';
+import { NgClass, NgIf } from '@angular/common';
+import { FieldErrorsComponent } from '../field-errors/field-errors.component';
 
 @Component({
   selector: 'app-custom-input',
@@ -8,7 +9,9 @@ import { NgIf } from '@angular/common';
   templateUrl: './custom-input.component.html',
   imports: [
     ReactiveFormsModule,
-    NgIf
+    NgIf,
+    NgClass,
+    FieldErrorsComponent
   ],
   styleUrl: './custom-input.component.scss'
 })
@@ -22,6 +25,10 @@ export class CustomInputComponent implements OnInit {
   @Input() type: string = 'text';
   @Input() validators: ValidatorFn[] = [];
   @Input() errorMessage!: string;
+
+  get field(): FormGroup {
+    return this.formGroup.get(this.name) as FormGroup;
+  }
 
   ngOnInit() {
     this.formGroup.get(this.name)?.setValidators(this.validators);
