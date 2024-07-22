@@ -7,7 +7,7 @@ import {
   ReactiveFormsModule,
   AbstractControl, ValidationErrors
 } from '@angular/forms';
-import { CustomInputComponent } from '../../../shared/components/custom-input/custom-input.component';
+import { CustomInputComponent } from '../../../components/shared/components/custom-input/custom-input.component';
 
 @Component({
   selector: 'app-register-form',
