@@ -1,5 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import {FormGroup, FormBuilder, Validators, FormsModule, ReactiveFormsModule, FormControl} from '@angular/forms';
+import {
+  FormGroup,
+  FormBuilder,
+  Validators,
+  FormsModule,
+  ReactiveFormsModule,
+  AbstractControl, ValidationErrors
+} from '@angular/forms';
 import { CustomInputComponent } from '../../../shared/components/custom-input/custom-input.component';
 
 @Component({
@@ -18,7 +25,7 @@ export class RegisterFormComponent implements OnInit {
   firstNameValidators = [Validators.required, Validators.minLength(3)];
   lastNameValidators = [Validators.required, Validators.minLength(3)];
   emailValidators = [Validators.required, Validators.email];
-  passwordValidators = [Validators.required, Validators.minLength(5)];
+  passwordValidators = [Validators.required, Validators.minLength(6)];
   repeatPasswordValidators = [Validators.required];
 
   constructor(private fb: FormBuilder) {
@@ -31,10 +38,6 @@ export class RegisterFormComponent implements OnInit {
     });
   }
 
-  get firstName(): FormGroup {
-    return this.registerForm.get('firstName') as FormGroup;
-  }
-
   onSubmit() {
     this.registerForm.markAllAsTouched();
 
@@ -44,4 +47,6 @@ export class RegisterFormComponent implements OnInit {
   }
 
   ngOnInit() {}
+
+  protected readonly console = console;
 }

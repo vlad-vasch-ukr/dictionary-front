@@ -1,5 +1,6 @@
 <div *ngIf="field.invalid && (field.dirty || field.touched)" class="text-danger mt-1 custom-error">
-  <p *ngIf="field.errors?.['required']" class="invalid">This field is required</p>
-  <p *ngIf="field.errors?.['minLength']" class="invalid-feedback">Minimum length is {{ minLength }}</p>
-  <p *ngIf="field.errors?.['maxLength']" class="invalid-feedback">Minimum length is {{ maxLength }}</p>
+  <p *ngIf="field.errors?.['required']">This field is required</p>
+  <p *ngIf="field.errors?.['minlength']">Minimum length is {{ minLength }} symbols</p>
+  <p *ngIf="field.errors?.['maxlength']">Minimum length is {{ maxLength }} symbols</p>
+  <p *ngIf="field.errors?.['mismatch']">Passwords must match</p>
 </div>

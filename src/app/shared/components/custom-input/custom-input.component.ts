@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {booleanAttribute, Component, Input, OnInit} from '@angular/core';
 import { FormGroup, ReactiveFormsModule, ValidatorFn } from '@angular/forms';
 import { NgClass, NgIf } from '@angular/common';
 import { FieldErrorsComponent } from '../field-errors/field-errors.component';
@@ -25,6 +25,9 @@ export class CustomInputComponent implements OnInit {
   @Input() type: string = 'text';
   @Input() validators: ValidatorFn[] = [];
   @Input() errorMessage!: string;
+  @Input({ transform: booleanAttribute }) required!: boolean;
+  @Input() minLength!: number;
+  @Input() maxLength!: number;
 
   get field(): FormGroup {
     return this.formGroup.get(this.name) as FormGroup;

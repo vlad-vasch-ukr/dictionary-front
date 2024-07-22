@@ -1,5 +1,12 @@
 <div class="custom-input" [formGroup]="formGroup">
-  <label class="custom-input__label mb-1" *ngIf="label" [for]="name">{{ label }}</label>
+  <label
+    class="custom-input__label mb-1 form-label"
+    *ngIf="label"
+    [for]="name"
+  >
+    {{ label }}
+    <span *ngIf="required" class="text-danger">*</span>
+  </label>
   <input
     class="custom-input__field form-control"
     [ngClass]="{ 'is-invalid': field.invalid && (field.dirty || field.touched) }"
@@ -8,5 +15,9 @@
     [id]="name"
     [placeholder]="placeholder"
   >
-  <app-field-errors [field]="field" />
+  <app-field-errors
+    [field]="field"
+    [minLength]="minLength"
+    [maxLength]="maxLength"
+  />
 </div>
