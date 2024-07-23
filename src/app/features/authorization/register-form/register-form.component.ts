@@ -5,9 +5,9 @@ import {
   Validators,
   FormsModule,
   ReactiveFormsModule,
-  AbstractControl, ValidationErrors
 } from '@angular/forms';
-import { CustomInputComponent } from '../../../components/shared/components/custom-input/custom-input.component';
+import { CustomInputComponent } from '../../../components/shared/custom-input/custom-input.component';
+import { IconComponent } from '../../../components/shared/icon/icon.component';
 
 @Component({
   selector: 'app-register-form',
@@ -15,7 +15,8 @@ import { CustomInputComponent } from '../../../components/shared/components/cust
   imports: [
     CustomInputComponent,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    IconComponent,
   ],
   templateUrl: './register-form.component.html',
   styleUrl: './register-form.component.scss'

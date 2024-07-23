@@ -1,0 +1,16 @@
+.field {
+  height: 44px;
+  padding: 1.7rem;
+  background-color: var(--primary-light-black);
+  border-radius: .8rem;
+  color: var(--white);
+  font-size: 1.2rem;
+  transition: outline .3s ease;
+  outline: 2px solid var(--white);
+  outline-color: transparent;
+  outline-offset: .1rem;
+
+  &:focus {
+    outline-color: var(--white);
+  }
+}

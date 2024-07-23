@@ -1,0 +1,13 @@
+.custom-input {
+  display: flex;
+  flex-direction: column;
+
+  &__label {
+    font-size: 1.2rem;
+    margin-bottom: .3rem;
+
+    .required {
+      color: var(--error);
+    }
+  }
+}

@@ -1,0 +1,15 @@
+.register-form {
+  padding: 2rem;
+  border-radius: 2rem;
+  border: 1px solid var(--white);
+
+  &__title {
+    margin: 0 0 1.5rem 0;
+    text-align: center;
+    font-size: 2rem;
+  }
+
+  &__submit {
+    margin: 2rem auto 0 auto;
+  }
+}

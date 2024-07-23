@@ -1,0 +1,25 @@
+.btn {
+  padding: 1.4rem;
+  min-width: 24rem;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 1.3rem;
+
+  svg {
+    display: block;
+    margin-left: 1rem;
+  }
+}
+
+.primary-btn {
+  background: linear-gradient(128.49deg, #CB3CFF 19.86%, #7F25FB 68.34%);
+  border-radius: .4rem;
+  color: var(--white);
+}

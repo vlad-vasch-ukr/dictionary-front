@@ -1,54 +1,60 @@
-<form [formGroup]="registerForm" class="register-form border border-1 border-light-subtle p-3 rounded-3" (ngSubmit)="onSubmit()">
-  <h1 class="h2 text-center mb-2">Register your account</h1>
-  <app-custom-input
-    [formGroup]="registerForm"
-    [validators]="firstNameValidators"
-    name="firstName"
-    placeholder=""
-    label="First name"
-    required
-    [minLength]="3"
-  />
-  <app-custom-input
-    class="mt-1 d-block"
-    [formGroup]="registerForm"
-    [validators]="lastNameValidators"
-    name="lastName"
-    placeholder=""
-    label="Last name"
-    required
-    [minLength]="3"
-  />
-  <app-custom-input
-    class="mt-1 d-block"
-    type="email"
-    [formGroup]="registerForm"
-    [validators]="emailValidators"
-    name="email"
-    placeholder=""
-    label="Email"
-    required
-  />
-  <app-custom-input
-    class="mt-1 d-block"
-    type="password"
-    [formGroup]="registerForm"
-    [validators]="passwordValidators"
-    name="password"
-    placeholder=""
-    label="Password"
-    [minLength]="6"
-    required
-  />
-  <app-custom-input
-    class="mt-1 d-block"
-    type="password"
-    [formGroup]="registerForm"
-    [validators]="repeatPasswordValidators"
-    name="repeatPassword"
-    placeholder=""
-    label="Repeat password"
-    required
-  />
-  <button type="submit" class="btn btn-primary d-block w-100 mt-3 text-uppercase">register</button>
-</form>
+<div class="register-form">
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <h1 class="register-form__title">Register your account</h1>
+    <app-custom-input
+      class="register-form__field"
+      [formGroup]="registerForm"
+      [validators]="firstNameValidators"
+      name="firstName"
+      placeholder=""
+      label="First name"
+      required
+      [minLength]="3"
+    />
+    <app-custom-input
+      class="register-form__field"
+      [formGroup]="registerForm"
+      [validators]="lastNameValidators"
+      name="lastName"
+      placeholder=""
+      label="Last name"
+      required
+      [minLength]="3"
+    />
+    <app-custom-input
+      class="register-form__field"
+      type="email"
+      [formGroup]="registerForm"
+      [validators]="emailValidators"
+      name="email"
+      placeholder=""
+      label="Email"
+      required
+    />
+    <app-custom-input
+      class="register-form__field"
+      type="password"
+      [formGroup]="registerForm"
+      [validators]="passwordValidators"
+      name="password"
+      placeholder=""
+      label="Password"
+      [minLength]="6"
+      required
+    />
+    <app-custom-input
+      class="register-form__field"
+      type="password"
+      [formGroup]="registerForm"
+      [validators]="repeatPasswordValidators"
+      name="repeatPassword"
+      placeholder=""
+      label="Repeat password"
+      required
+    />
+    <button type="submit" class="register-form__submit btn primary-btn">
+      Register
+      <app-icon name="arrow" />
+    </button>
+  </form>
+</div>
